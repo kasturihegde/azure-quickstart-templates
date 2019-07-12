@@ -4,14 +4,14 @@
     "parameters": {
         "serverName": {
             "type": "string",
-            "defaultValue": "[uniqueString(resourceGroup().id)]",
+            "defaultValue": "[uniqueString(resourceGroup(kasturiRG).id)]",
             "metadata": {
                 "description": "Server name for the MySQL PaaS instance and it's replicas (replicas will get a '-' attached to the end with the replica number)."
             }
         },
         "location": {
             "type": "string",
-            "defaultValue": "[resourceGroup().location]",
+            "defaultValue": "[resourceGroup(kasturiRg).Centralindia]",
             "metadata": {
                 "description": "Location for the MySQL PaaS components to be deployed."
             }
@@ -155,10 +155,10 @@
                         "value": "[variables('sku')]"
                     },
                     "serverName": {
-                        "value": "[parameters('serverName')]"
+                        "value": "[parameters('SQLVM')]"
                     },
                     "location": {
-                        "value": "[parameters('location')]"
+                        "value": "[parameters('centralindia')]"
                     },
                     "version": {
                         "value": "[parameters('version')]"
